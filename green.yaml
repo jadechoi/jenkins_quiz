@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green
+spec:
+  selector:
+    matchLabels:
+      color: green
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        color: green
+    spec:
+      containers:
+      - name: green
+        image: 192.168.8.100:5000/testweb:green
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: green-lb
+spec:
+  ports:
+    - name: green-port
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    color: green
+  type: LoadBalancer
