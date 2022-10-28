@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: blue
-        image: 192.168.8.100:5000/testweb:blue
+        image: 192.168.8.100:5000/web:blue
         ports:
         - containerPort: 80
 ---
