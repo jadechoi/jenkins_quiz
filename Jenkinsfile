@@ -10,7 +10,7 @@ pipeline {
         stage(' docker image build and push to p-registry' ) {
 	  steps {
 	    sh '''
-            docker build -t 192.168.8.100:5000/web:bule .
+            docker build -t 192.168.8.100:5000/web:blue .
 	    docker push 192.168.8.100:5000/web:blue
 	    '''
 	  }
